@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stores_kg/products.dart';
+import 'package:stores_kg/jsonDecod/products.dart';
+
 
 class Sections extends StatelessWidget {
   final String? imageUrl;

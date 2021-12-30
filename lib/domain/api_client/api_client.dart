@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:stores_kg/category.dart';
-
-import '../../category.dart';
+import 'package:stores_kg/jsonDecod/category.dart';
 
 class ApiClient {
   final client = HttpClient();
@@ -17,7 +15,7 @@ class ApiClient {
     final jsonString = jsonList.join();
     final json = jsonDecode(jsonString) as dynamic;
     final hidraColection = HidraColection.fromJson(json);
-    
+
     return hidraColection.hydraMember.toList();
   }
 }

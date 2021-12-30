@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stores_kg/category.dart';
 import 'package:stores_kg/domain/api_client/api_client.dart';
+import 'package:stores_kg/jsonDecod/category.dart';
 
 class MainScreenModel extends ChangeNotifier {
   final apiClient = ApiClient();

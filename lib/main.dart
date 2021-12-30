@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stores_kg/main_screen/main_screen.dart';
-import 'package:stores_kg/main_screen/main_screen_model.dart';
+import 'package:stores_kg/screens/main_screen.dart';
+import 'package:stores_kg/screens/main_screen_model.dart';
 
 void main() => runApp(const MyApp());
 

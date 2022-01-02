@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stores_kg/main_screen/main_screen_model.dart';
-import 'package:stores_kg/section_screen.dart';
+import 'package:stores_kg/screens/section_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

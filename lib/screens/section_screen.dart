@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stores_kg/json_decode/sections.dart';
-import 'package:stores_kg/product_screen.dart';
+import 'package:stores_kg/screens/products_screen.dart';
 
 class SectionScreen extends StatelessWidget {
   final List<Sections> sections;

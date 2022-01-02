@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:stores_kg/json_decode/products.dart';
+import 'package:stores_kg/screens/product_screen.dart';
 
 class ProductsScreen extends StatelessWidget {
-  final products;
+  final List<Products> products;
   const ProductsScreen({Key? key, required this.products}) : super(key: key);
 
   @override
@@ -15,7 +17,11 @@ class ProductsScreen extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        ProductScreen(name: products[index].name)));
+              },
               child: Text(
                 products[index].name,
               ),

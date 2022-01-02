@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stores_kg/sections.dart';
+import 'package:stores_kg/json_decode/sections.dart';
 
 class Categories extends StatelessWidget {
   final String type;

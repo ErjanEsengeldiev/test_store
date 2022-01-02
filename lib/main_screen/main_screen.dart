@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stores_kg/domain/api_client/api_client.dart';
 import 'package:stores_kg/main_screen/main_screen_model.dart';
+import 'package:stores_kg/section_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -10,56 +10,45 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    MainScreenModelProvider.read(context)!.model.getCategories();
+    super.initState();
+  }
+
   final model = MainScreenModel();
 
   @override
   Widget build(BuildContext context) {
+    final categorys =
+        MainScreenModelProvider.whatch(context)!.model.categgories;
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(
-          actions: [
-            ElevatedButton(
+        appBar: AppBar(),
+        body: ListView.builder(
+          shrinkWrap: true,
+          itemCount: categorys.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: ElevatedButton(
                 onPressed: () {
-                  MainScreenModelProvider.read(context)!
-                      .model
-                      .getCategories();
-                  print(MainScreenModelProvider.read(context)
-                      ?.model
-                      .categgories
-                      .length);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => SectionScreen(
+                          sections: categorys[index].categories,)));
                 },
-                child: Text('relod'))
-          ],
-          bottom: TabBar(tabs: [
-            Tab(child: Text('1')),
-            Tab(child: Text('1')),
-            Tab(child: Text('1')),
-          ]),
-        ),
-        body: TabBarView(
-          children: [
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: MainScreenModelProvider.whatch(context)!
-                  .model
-                  .categgories
-                  .length,
-              itemBuilder: (context, index) {
-                return Container(
-                  child: Text(
-                    MainScreenModelProvider.whatch(context)
-                            ?.model
-                            .categgories[index]
-                            .name ??
-                        'eror',
-                  ),
-                );
-              },
-            ),
-            Text('123'),
-            Text('123'),
-          ],
+                child: Text(
+                  MainScreenModelProvider.whatch(context)
+                          ?.model
+                          .categgories[index]
+                          .name ??
+                      'eror',
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:stores_kg/category.dart';
+import 'package:stores_kg/json_decode/category.dart';
 
-import '../../category.dart';
+import '../../json_decode/category.dart';
 
 class ApiClient {
   final client = HttpClient();
